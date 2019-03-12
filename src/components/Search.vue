@@ -28,9 +28,8 @@
 </template>
 
 <script>
-import * as searchProviders from '../assets/js/providers.js'
+import * as searchProviders from "../assets/js/providers.js";
 export default {
-    
   data: function() {
     return {
       search: String
@@ -72,14 +71,53 @@ export default {
   },
   mounted: function() {
     this.$nextTick(function() {
-      this.$refs.search.focus();
+      if (this.$refs.search) {
+        this.$refs.search.focus();
+      }
     });
-    // let providersScript = document.createElement("script");
-    // providersScript.setAttribute("src", "/js/providers.js");
-    // document.head.appendChild(providersScript);
   }
 };
 </script>
 
 <style>
+input {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 2em;
+  padding: 0.25em;
+  width: 100%;
+}
+
+.results {
+  margin-top: 1em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5em;
+  width: 100%;
+}
+
+.result {
+  display: flex;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.result .number {
+  font-size: 2em;
+  padding: 0.25em;
+}
+
+.result .content {
+  padding: 0.5em;
+}
+
+.tag {
+  color: #fff;
+  padding: 0.1em 0.25em;
+  border-radius: 3px;
+}
+
 </style>

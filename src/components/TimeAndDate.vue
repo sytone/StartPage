@@ -48,4 +48,20 @@ export default {
 </script>
 
 <style>
+.time-date {
+  margin-bottom: 1em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.time {
+  font-size: 4em;
+}
+
+.date {
+  font-size: 2em;
+}
 </style>

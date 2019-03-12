@@ -77,6 +77,32 @@ export const providers = [
         }
     },
     {
+        "name": "Bing",
+        "colour": "#de5833",
+        "display": function () {
+            return true;
+        },
+        "description": function (query) {
+            return "Search for \"" + query + "\"";
+        },
+        "handler": function (query) {
+            return "https://www.bing.com/search?q=" + encodeURIComponent(query);
+        }
+    },
+    {
+        "name": "Microsoft Docs",
+        "colour": "#de5833",
+        "display": function () {
+            return true;
+        },
+        "description": function (query) {
+            return "Search for \"" + query + "\"";
+        },
+        "handler": function (query) {
+            return "https://docs.microsoft.com/en-us/search/index?search=" + encodeURIComponent(query);
+        }
+    },
+    {
         "name": "DuckDuckGo",
         "colour": "#de5833",
         "display": function () {
