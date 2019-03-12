@@ -1,7 +1,7 @@
-const TWITTER_HANDLE_REGEX = /^@([a-zA-Z0-9_]+)$/;
-const IG_HANDLE_REGEX = /^@([a-zA-Z0-9_.]+)$/;
-const SUBREDDIT_REGEX = /^\/?r\/([a-zA-Z0-9_]+)$/;
-const GH_REPO_REGEX = /^([a-zA-Z0-9_-]{2,})\/([a-zA-Z0-9_-]{2,})$/;
+export const TWITTER_HANDLE_REGEX = /^@([a-zA-Z0-9_]+)$/;
+export const IG_HANDLE_REGEX = /^@([a-zA-Z0-9_.]+)$/;
+export const SUBREDDIT_REGEX = /^\/?r\/([a-zA-Z0-9_]+)$/;
+export const GH_REPO_REGEX = /^([a-zA-Z0-9_-]{2,})\/([a-zA-Z0-9_-]{2,})$/;
 
 /*
  * Define new search providers here.
@@ -13,7 +13,7 @@ const GH_REPO_REGEX = /^([a-zA-Z0-9_-]{2,})\/([a-zA-Z0-9_-]{2,})$/;
  * The handler() method returns the URL that we should redirect to, where the first parameter is the whole search query.
  */
 
-const providers = [
+export const providers = [
     {
         "name": "GitHub",
         "colour": "#333",
