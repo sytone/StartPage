@@ -22,3 +22,5 @@ yarn-error.log*
 
 # Private configuration
 links.json
+
+yarn.lock
