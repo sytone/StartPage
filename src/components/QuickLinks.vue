@@ -48,39 +48,51 @@ export default {
   },
   methods: {
     onKeydown: function(ev) {
+      var keyOverrideNeeded = false;
       switch (ev.code) {
         case "Numpad7":
           this.openLink(0);
+          keyOverrideNeeded = true;
           break;
         case "Numpad8":
           this.openLink(1);
+          keyOverrideNeeded = true;
           break;
         case "Numpad9":
           this.openLink(2);
+          keyOverrideNeeded = true;
           break;
         case "Numpad4":
           this.openLink(3);
+          keyOverrideNeeded = true;
           break;
         case "Numpad5":
           this.openLink(4);
+          keyOverrideNeeded = true;
           break;
         case "Numpad6":
           this.openLink(5);
+          keyOverrideNeeded = true;
           break;
         case "Numpad1":
           this.openLink(6);
+          keyOverrideNeeded = true;
           break;
         case "Numpad2":
           this.openLink(7);
+          keyOverrideNeeded = true;
           break;
         case "Numpad3":
           this.openLink(8);
+          keyOverrideNeeded = true;
           break;
         default:
         // code block
       }
-      ev.preventDefault();
-      return false;
+      if (keyOverrideNeeded) {
+        ev.preventDefault();
+        return false;
+      }
 
       //   if (ev.ctrlKey && ev.which === 83) {
       //     // Check for the Ctrl key being pressed, and if the key = [S] (83)

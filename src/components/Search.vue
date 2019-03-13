@@ -3,7 +3,7 @@
     <input
       class="search"
       placeholder="Search for anything..."
-      ref="this.search"
+      ref="search"
       v-model="search"
       @keydown="keypress"
     >
@@ -71,9 +71,7 @@ export default {
   },
   mounted: function() {
     this.$nextTick(function() {
-      if (this.$refs.search) {
-        this.$refs.search.focus();
-      }
+      this.$refs.search.focus();
     });
   }
 };
@@ -119,5 +117,4 @@ input {
   padding: 0.1em 0.25em;
   border-radius: 3px;
 }
-
 </style>
