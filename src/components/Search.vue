@@ -48,7 +48,7 @@ export default {
     },
     handleResult: function(id) {
       if (this.results[id]) {
-        window.location.href = this.results[id].url;
+        window.open(this.results[id].url, "SerchResult");
       }
     }
   },
