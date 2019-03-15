@@ -1,8 +1,10 @@
 <template>
-  <div id="app">
+  <div id="app" class="container-fluid">
+
     <TimeAndDate :date="date"></TimeAndDate>
     <QuickLinks></QuickLinks>
     <Search></Search>
+    <LinkList linkListName="home"></LinkList>
   </div>
 </template>
 
@@ -11,6 +13,7 @@
 import TimeAndDate from "./components/TimeAndDate.vue";
 import Search from "./components/Search.vue";
 import QuickLinks from "./components/QuickLinks.vue";
+import LinkList from "./components/LinkList.vue";
 import moment from "moment";
 import axios from "axios";
 
@@ -19,13 +22,15 @@ export default {
   data: function() {
     return {
       date: null,
-      background: ""
+      background: "",
+      showDismissibleAlert: false
     };
   },
   components: {
     TimeAndDate,
     Search,
-    QuickLinks
+    QuickLinks,
+    LinkList
   },
   methods: {
     doTime: function() {
@@ -36,6 +41,8 @@ export default {
     this.date = moment();
   },
   mounted: function() {
+    document.title = process.env.VUE_APP_TITLE;
+
     this.doTime();
 
     setInterval(() => {
@@ -43,25 +50,26 @@ export default {
     }, 1000);
 
     const self = this;
+    var backgroundImageUri = "/backgroundimage";
+    if (process.env.NODE_ENV == "development") {
+      backgroundImageUri = "http://localhost:3000/backgroundimage";
+    }
+
     axios
-      .get("/backgroundimage")
+      .get(backgroundImageUri)
       .then(function(response) {
         self.background = response.data;
         document.body.style.backgroundImage =
           "url('https://www.bing.com" + self.background + "')";
       })
       .catch(function(error) {
-        console.log(error);
+        //console.log(error);
       });
   }
 };
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
   background: url() no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -76,11 +84,5 @@ body {
 
 p {
   margin: 0;
-}
-
-#app {
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
 }
 </style>

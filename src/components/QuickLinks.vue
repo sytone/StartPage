@@ -1,35 +1,35 @@
 <template>
   <div class="table">
     <div class="row">
-      <div class="cell1">
+      <div class="col text-center">
         <a :href="links[0].url" v-if="links && links[0]">{{links[0].name}}</a>
       </div>
-      <div class="cell2">
+      <div class="col text-center">
         <a :href="links[1].url" v-if="links && links[1]">{{links[1].name}}</a>
       </div>
-      <div class="cell3">
+      <div class="col text-center">
         <a :href="links[2].url" v-if="links && links[2]">{{links[2].name}}</a>
       </div>
     </div>
     <div class="row">
-      <div class="cell1">
+      <div class="col text-center">
         <a :href="links[3].url" v-if="links && links[3]">{{links[3].name}}</a>
       </div>
-      <div class="cell2">
+      <div class="col text-center">
         <a :href="links[4].url" v-if="links && links[4]">{{links[4].name}}</a>
       </div>
-      <div class="cell3">
+      <div class="col text-center">
         <a :href="links[5].url" v-if="links && links[5]">{{links[5].name}}</a>
       </div>
     </div>
     <div class="row">
-      <div class="cell1">
+      <div class="col text-center">
         <a :href="links[6].url" v-if="links && links[6]">{{links[6].name}}</a>
       </div>
-      <div class="cell2">
+      <div class="col text-center">
         <a :href="links[7].url" v-if="links && links[7]">{{links[7].name}}</a>
       </div>
-      <div class="cell3">
+      <div class="col text-center">
         <a :href="links[8].url" v-if="links && links[8]">{{links[8].name}}</a>
       </div>
     </div>
@@ -109,14 +109,18 @@ export default {
   },
   mounted: function() {
     const self = this;
+    var linksUri = "/links";
+    if (process.env.NODE_ENV == "development") {
+      linksUri = "http://localhost:3000/links";
+    }
     axios
-      .get("/links")
+      .get(linksUri)
       .then(function(response) {
         //console.log(response);
         self.links = response.data;
       })
       .catch(function(error) {
-        console.log(error);
+        //console.log(error);
       });
 
     document.addEventListener("keydown", this.onKeydown);
@@ -157,6 +161,7 @@ a:hover {
   font-size: 2em;
   padding: 0.25em;
 }
+/*
 .row {
   display: table-row;
   height: 100%;
@@ -176,5 +181,5 @@ a:hover {
 .cell3 > img {
   width: 100%;
   height: auto;
-}
+} */
 </style>

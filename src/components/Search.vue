@@ -1,5 +1,5 @@
 <template>
-  <div id="seach-component">
+  <div id="search-component">
     <input
       class="search"
       placeholder="Search for anything..."
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style>
-input {
+.search {
   border: none;
   outline: none;
   color: #fff;
