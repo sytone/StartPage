@@ -1,9 +1,15 @@
 <template>
   <div class="link-list links">
+    <div class="listHeading text-center">{{linkListName}}</div>
     <ul class="list-group links" v-if="links && links.length > 0">
-      <li class="list-group-item link" v-for="(link, index) in links" :key="index" @click="handleLink(index)">
-            <!-- <span :style="{'background-color': link.colour}" class="tag">{{link.name}}</span> -->
-          {{link.name}}
+      <li
+        class="list-group-item link"
+        v-for="(link, index) in links"
+        :key="index"
+        @click="handleLink(index)"
+      >
+        <!-- <span :style="{'background-color': link.colour}" class="tag">{{link.name}}</span> -->
+        {{link.name}}
       </li>
     </ul>
   </div>
@@ -21,7 +27,7 @@ export default {
     return {
       links: null,
       showDismissibleAlert: false,
-      dismissibleAlertMessage: ''
+      dismissibleAlertMessage: ""
     };
   },
   methods: {
@@ -46,7 +52,7 @@ export default {
       })
       .catch(function(error) {
         self.showDismissibleAlert = true;
-        self.dismissibleAlertMessage = error
+        self.dismissibleAlertMessage = error;
       });
   }
 };
@@ -71,16 +77,21 @@ a:hover {
   color: black;
 }
 
+.listHeading {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  font-size: 2em;
+  margin-top: 1em;
+}
 
 .links {
-  background-color: rgba(0, 0, 0, 0.5) !important;;
-  margin-top: 1em;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  margin-top: 0.11em;
   color: #fff;
   font-family: "Roboto Mono", sans-serif;
 }
 
 .link {
-  background-color: rgba(0, 0, 0, 0.5) !important;;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   display: flex;
   padding: 0.1em;
   cursor: pointer;

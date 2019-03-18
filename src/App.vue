@@ -4,7 +4,18 @@
     <TimeAndDate :date="date"></TimeAndDate>
     <QuickLinks></QuickLinks>
     <Search></Search>
+    <div class="row">
+      <div class="col">
     <LinkList linkListName="home"></LinkList>
+      </div>
+      <div class="col">
+    <LinkList linkListName="work"></LinkList>
+      </div>
+      <div class="col">
+    <LinkList linkListName="social"></LinkList>
+      </div>
+    </div>
+    <!-- <SunriseSunset></SunriseSunset> -->
   </div>
 </template>
 
@@ -14,6 +25,7 @@ import TimeAndDate from "./components/TimeAndDate.vue";
 import Search from "./components/Search.vue";
 import QuickLinks from "./components/QuickLinks.vue";
 import LinkList from "./components/LinkList.vue";
+//import SunriseSunset from "./components/SunriseSunset.vue";
 import moment from "moment";
 import axios from "axios";
 
@@ -30,7 +42,8 @@ export default {
     TimeAndDate,
     Search,
     QuickLinks,
-    LinkList
+    LinkList,
+    //SunriseSunset
   },
   methods: {
     doTime: function() {
